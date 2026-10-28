@@ -1,0 +1,6 @@
+{
+  "name": "問卷及多重獨立查詢管理系統",
+  "description": "支援精細化分級(RBAC)、自動信件通知、自定義問卷時間、進度條填答、多題型支援、與獨立密碼管制更正子查詢系統的完美響應式問卷平台。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

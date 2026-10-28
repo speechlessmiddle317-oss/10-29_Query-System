@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "AppUser statistics and permissions info",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "role": { "type": "string" },
+        "assignedTables": { "type": "array" },
+        "starLevel": { "type": "number" },
+        "banned": { "type": "boolean" },
+        "respondentPoints": { "type": "number" },
+        "respondentSubRank": { "type": "number" },
+        "promotedFriendsThisMonthCount_T3": { "type": "number" },
+        "promotedFriendsThisWeekCount_T5": { "type": "number" },
+        "bannedOtherAppliedThisMonthCount": { "type": "number" },
+        "extraT3Quota": { "type": "number" },
+        "extraT5Quota": { "type": "number" },
+        "extraBanQuota": { "type": "number" },
+        "bannedFeatures": { "type": "array" }
+      }
+    },
+    "Questionnaire": {
+      "title": "Questionnaire",
+      "description": "Survey or questionnaire structure",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "creator": { "type": "string" },
+        "description": { "type": "string" },
+        "questions": { "type": "array" },
+        "visibleToRoles": { "type": "array" },
+        "passwordRestricted": { "type": "boolean" },
+        "surveyPassword": { "type": "string" },
+        "allowPointsRedemption": { "type": "boolean" },
+        "pointsCost": { "type": "number" },
+        "banned": { "type": "boolean" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "SurveyResponse": {
+      "title": "SurveyResponse",
+      "description": "A completed questionnaire response",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "surveyId": { "type": "string" },
+        "surveyTitle": { "type": "string" },
+        "respondentUsername": { "type": "string" },
+        "answers": { "type": "object" },
+        "auditState": { "type": "string" },
+        "disputed": { "type": "boolean" },
+        "disputeReason": { "type": "string" },
+        "submittedAt": { "type": "string" }
+      }
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Log of actions performed in the application",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "user": { "type": "string" },
+        "role": { "type": "string" },
+        "action": { "type": "string" },
+        "target": { "type": "string" },
+        "details": { "type": "string" }
+      }
+    },
+    "PromotionApplication": {
+      "title": "PromotionApplication",
+      "description": "A promotion request submitted by a user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "currentRole": { "type": "string" },
+        "requestedRole": { "type": "string" },
+        "status": { "type": "string" },
+        "reason": { "type": "string" },
+        "reviewer": { "type": "string" },
+        "appliedAt": { "type": "string" }
+      }
+    },
+    "CheatReport": {
+      "title": "CheatReport",
+      "description": "Cheat or plagiarism report",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "reporter": { "type": "string" },
+        "target": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "QuotaRequest": {
+      "title": "QuotaRequest",
+      "description": "Quota increase request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "requester": { "type": "string" },
+        "perkName": { "type": "string" },
+        "requestedCount": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "TriviaQuestion": {
+      "title": "TriviaQuestion",
+      "description": "Seeded or manual trivia questions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "question": { "type": "string" },
+        "options": { "type": "array" },
+        "correctIndex": { "type": "number" },
+        "pointsValue": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Collection of users and their profile / stats"
+    },
+    "questionnaires": {
+      "schema": "Questionnaire",
+      "description": "Collection of questionnaires"
+    },
+    "responses": {
+      "schema": "SurveyResponse",
+      "description": "Collection of survey submissions and answers"
+    },
+    "audit_logs": {
+      "schema": "AuditLog",
+      "description": "Collection of app audit trails"
+    },
+    "promotions": {
+      "schema": "PromotionApplication",
+      "description": "Collection of promotion applications"
+    },
+    "cheat_reports": {
+      "schema": "CheatReport",
+      "description": "Collection of logged cheat/cheat-related reports"
+    },
+    "quota_requests": {
+      "schema": "QuotaRequest",
+      "description": "Collection of extra quota limit requests"
+    },
+    "trivia_questions": {
+      "schema": "TriviaQuestion",
+      "description": "Collection of trivia questions"
+    }
+  }
+}
